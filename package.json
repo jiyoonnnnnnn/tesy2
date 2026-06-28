@@ -1,0 +1,33 @@
+{
+  "name": "static-publishing",
+  "version": "1.0.0",
+  "description": "HTML, SCSS, Tailwind CSS, Gulp 기반 정적 페이지 퍼블리싱 프로젝트",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build",
+    "clean": "gulp clean"
+  },
+  "keywords": [
+    "html",
+    "scss",
+    "tailwindcss",
+    "gulp",
+    "publishing"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.3",
+    "cssnano": "^7.0.6",
+    "del": "^7.1.0",
+    "gulp": "^5.0.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0",
+    "postcss": "^8.4.49",
+    "sass": "^1.83.0",
+    "tailwindcss": "^3.4.17"
+  }
+}

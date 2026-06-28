@@ -1,0 +1,92 @@
+@use '../abstracts/variables' as *;
+
+// 메인 정보 카드 (오늘의 장 준비하기 등)
+.info-card {
+  background-color: #fff;
+  border-radius: 24px;
+  box-shadow: 0 0 10px rgba(179, 179, 179, 0.5);
+  padding: 24px;
+}
+
+// 히어로 카드: 디자인 시안대로 카드 3장이 뒤로 갈수록 작아지며 겹쳐 쌓인 형태.
+// 카드는 사라지지 않고 3개 위치(앞/중간/뒤)를 서로 자리바꿈하며 순환한다.
+// 앞 카드는 아래로 살짝 내려갔다가 작아지며 맨 뒤로 미끄러져 들어가므로,
+// 빈 구간 없이 두/세 번째 카드가 한 칸씩 자연스럽게 앞으로 올라온다.
+.card-stack {
+  position: relative;
+  // 앞 카드가 24px 아래 + 빠질 때 살짝 더 내려가므로 여유 높이 확보
+  height: 412px;
+  margin: 0 auto;
+  width: 335px;
+
+  &__item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 24px;
+    box-shadow: 0 0 10px rgba(179, 179, 179, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 335px;
+    height: 376px;
+    padding: 24px;
+    overflow: hidden;
+    transform-origin: top center;
+    transition:
+      transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, width;
+    backface-visibility: hidden;
+  }
+
+  // 카드 내부 콘텐츠는 항상 앞 카드 기준 고정폭(335 - 좌우패딩 48 = 287px)으로
+  // 두어, 카드 폭이 줄어도 레이아웃이 흔들리지 않고 가운데 정렬을 유지한다.
+  &__inner {
+    flex: 1;
+    width: 287px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // 디자인 시안 좌표 (375px 프레임 기준):
+  //  슬롯0(앞)  : 335px, 24px 아래  (활성)
+  //  슬롯1(중간): 295px, 12px 위치  (좌우 20px 안쪽)
+  //  슬롯2(뒤)  : 256px,  0px 위치  (좌우 40px 안쪽)
+
+  &__item.is-slot-0 {
+    width: 335px;
+    transform: translateY(24px);
+    z-index: 3;
+  }
+
+  &__item.is-slot-1 {
+    width: 295px;
+    transform: translateY(12px);
+    z-index: 2;
+  }
+
+  &__item.is-slot-2 {
+    width: 256px;
+    transform: translateY(0);
+    z-index: 1;
+  }
+
+  // 앞 -> 뒤로 도는 카드: 다른 카드 위를 가로지르지 않도록 z-index 를 가장
+  // 낮게 두고, 살짝 아래로 내려갔다가(뒤로 빠지는 느낌) 맨 뒤 위치로 수렴.
+  // JS 가 이 클래스를 잠깐 부여한 뒤 is-slot-2 로 전환한다.
+  &__item.is-going-back {
+    width: 335px;
+    transform: translateY(40px);
+    z-index: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-stack__item {
+    transition: none;
+  }
+}

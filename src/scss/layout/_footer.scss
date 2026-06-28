@@ -1,0 +1,65 @@
+@use '../abstracts/variables' as *;
+
+.site-footer {
+  background-color: #fff;
+  padding: 24px 0 30px;
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $color-ink;
+
+    .divider {
+      width: 1px;
+      height: 10px;
+      background-color: $color-gray-400;
+    }
+
+    .strong {
+      font-weight: 600;
+    }
+  }
+
+  &__contact {
+    padding: 24px 20px 0;
+  }
+
+  &__center-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-ink;
+    line-height: 1.4;
+  }
+
+  &__phone {
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-purple;
+    line-height: 1.4;
+  }
+
+  &__detail {
+    font-size: 14px;
+    line-height: 1.5;
+    color: $color-gray-500;
+  }
+
+  &__logos {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px 2px;
+    opacity: 0.34;
+    mix-blend-mode: luminosity;
+
+    img {
+      flex-shrink: 0;
+      width: auto;
+      height: 14px;
+    }
+  }
+}

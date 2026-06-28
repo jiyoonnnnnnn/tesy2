@@ -1,0 +1,34 @@
+@use '../abstracts/variables' as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $color-gray-150;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+// 모바일 컨테이너 (375px 기준 디자인을 가운데 정렬)
+.mobile-frame {
+  width: 100%;
+  max-width: $mobile-width;
+  margin: 0 auto;
+  background-color: $color-gray-150;
+  min-height: 100vh;
+}

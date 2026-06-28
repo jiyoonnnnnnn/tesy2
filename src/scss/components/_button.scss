@@ -1,0 +1,32 @@
+@use '../abstracts/variables' as *;
+
+// 메인 CTA 버튼 (오늘의 주식핵심정보 확인)
+.cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  border-radius: 16px;
+  background-image: linear-gradient(
+    81.8deg,
+    $color-purple-light 0%,
+    $color-purple 32%,
+    $color-purple 100%
+  );
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.4px;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+
+  &:hover {
+    opacity: 0.92;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}

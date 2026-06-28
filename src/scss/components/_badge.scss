@@ -1,0 +1,25 @@
+@use '../abstracts/variables' as *;
+
+// 카드 상단 시간 배지 (매일 오전 9시 등)
+.time-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.35px;
+  line-height: 1.4;
+
+  &--blue {
+    color: $color-blue;
+  }
+
+  &--orange {
+    color: $color-orange;
+  }
+
+  &--purple {
+    color: $color-purple;
+  }
+}

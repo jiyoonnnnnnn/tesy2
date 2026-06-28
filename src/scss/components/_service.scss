@@ -1,0 +1,38 @@
+@use '../abstracts/variables' as *;
+
+// 주요 서비스 카드
+.service-card {
+  position: relative;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 10px rgba(91, 110, 160, 0.12);
+  padding: 24px;
+  height: 210px;
+  overflow: hidden;
+
+  &__label {
+    color: $color-gray-450;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.35px;
+    line-height: 1.5;
+  }
+
+  &__title {
+    color: $color-ink;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.45px;
+    line-height: 1.2;
+    margin-top: 8px;
+  }
+
+  &__image {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+}
